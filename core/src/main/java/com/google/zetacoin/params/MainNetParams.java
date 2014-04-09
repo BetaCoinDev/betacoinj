@@ -60,7 +60,8 @@ public class MainNetParams extends NetworkParameters {
         // TODO: Is BetaCoin post-BIP30? Do we need these?
 
         dnsSeeds = new String[] {
-                "seed1.betacoin.org"
+                "seed1.betacoin.org",
+                 "76.74.177.244"
                         };
     }
 
