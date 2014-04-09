@@ -54,7 +54,7 @@ public abstract class NetworkParameters implements Serializable {
     /**
      * The alert signing key originally owned by Satoshi, and now passed on to Gavin along with a few others.
      */
-    public static final byte[] SATOSHI_KEY = Hex.decode("045337216002ca6a71d63edf062895417610a723d453e722bf4728996c58661cdac3d4dec5cecd449b9086e9602b35cc726a9e0163e1a4d40f521fbdaebb674658");
+    public static final byte[] SATOSHI_KEY = Hex.decode("000000000007840aaf100de8442ebecedf5b095cdbb9bc716bda9110971b28a49e0ead8564ff0db22209e0374782c093bb899692d524e9d6a6956e7c5ecbcd68284");
     /** The string returned by getId() for the main, production network where people trade things. */
     public static final String ID_MAINNET = "org.zetacoin.production";
     /** The string returned by getId() for the testnet. */
@@ -113,30 +113,30 @@ public abstract class NetworkParameters implements Serializable {
             //
             //   "3 Aug 2013 - M&G - Mugabe wins Zim election with more than 60% of votes"
             byte[] bytes = Hex.decode
-                    ("04ffff001d01044533204175672032303133202d204d2647202d204d75676162652077696e73205a696d20656c656374696f6e2077697468206d6f7265207468616e20363025206f6620766f746573");
+                    ("04ffff001d010445434e4e2032332f31302f3230313320536369656e74697374732066696e6420676f6c642067726f77696e67206f6e20747265657320696e204175737472616c6961");
             t.addInput(new TransactionInput(n, t, bytes));
             ByteArrayOutputStream scriptPubKeyBytes = new ByteArrayOutputStream();
             Script.writeBytes(scriptPubKeyBytes, Hex.decode
                     ("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f"));
             scriptPubKeyBytes.write(ScriptOpCodes.OP_CHECKSIG);
-            t.addOutput(new TransactionOutput(n, t, Utils.toNanoCoins(1000, 0), scriptPubKeyBytes.toByteArray()));
+            t.addOutput(new TransactionOutput(n, t, Utils.toNanoCoins(50, 0), scriptPubKeyBytes.toByteArray()));
         } catch (Exception e) {
             // Cannot happen.
             throw new RuntimeException(e);
         }
         genesisBlock.addTransaction(t);
         // Unable to figure out the exact transaction input script therefore taking the shortcut by setting merkle root directly
-        genesisBlock.setMerkleRoot(new Sha256Hash("d0227b8c3e3d07bce9656b3d9e474f050d23458aaead93357dcfdac9ab9b79f9"));
+        genesisBlock.setMerkleRoot(new Sha256Hash("d25dbe3a2852926fc2ec6591a95983bbcde80c449f30ced37fd657361073fa96"));
         return genesisBlock;
     }
 
     // Difficulty calculation parameters
-    public static final int TARGET_TIMESPAN = 2 * 60;  // 2 minutes per difficulty cycle, on average.
-    public static final int TARGET_SPACING = 30;  // 30 seconds per block.
-    public static final int INTERVAL = TARGET_TIMESPAN / TARGET_SPACING; // 4 blocks
-    public static final int AVERAGING_INTERVAL = INTERVAL * 20; // 80 blocks
-    public static final int AVERAGING_TARGET_TIMESPAN = AVERAGING_INTERVAL * TARGET_SPACING; // 40 minutes
-    public static final int MAX_ADJUST_DOWN = 20; // 20% adjustment down
+    public static final int TARGET_TIMESPAN = 24 * 60;  // 24 minutes per difficulty cycle, on average.
+    public static final int TARGET_SPACING = 4 * 60;  // 4 min per block.
+    public static final int INTERVAL = TARGET_TIMESPAN / TARGET_SPACING; // 6 blocks
+    public static final int AVERAGING_INTERVAL = INTERVAL * 8; // 48 blocks
+    public static final int AVERAGING_TARGET_TIMESPAN = AVERAGING_INTERVAL * TARGET_SPACING; 
+    public static final int MAX_ADJUST_DOWN = 2; // 2% adjustment down
     public static final int MAX_ADJUST_UP = 1; // 1% adjustment up
     public static final int TARGET_TIMESPAM_ADJ_DOWN = TARGET_TIMESPAN * (100 + MAX_ADJUST_DOWN) / 100;
     public static final int MIN_ACTUAL_TIMESPAN = AVERAGING_TARGET_TIMESPAN * (100 - MAX_ADJUST_UP) / 100;
@@ -152,7 +152,7 @@ public abstract class NetworkParameters implements Serializable {
     /**
      * The maximum money to be generated
      */
-    public static final BigInteger MAX_MONEY = new BigInteger("200000000", 10).multiply(COIN);
+    public static final BigInteger MAX_MONEY = new BigInteger("64000000", 10).multiply(COIN);
 
     /** Alias for TestNet3Params.get(), use that instead. */
     @Deprecated
