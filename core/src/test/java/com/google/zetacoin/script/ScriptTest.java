@@ -53,7 +53,7 @@ public class ScriptTest {
         // Test we can extract the from address.
         byte[] hash160 = Utils.sha256hash160(script.getPubKey());
         Address a = new Address(params, hash160);
-        assertEquals("cVUYACLCdsd4iszxQiCDBCAoCFqxJ99fmA", a.toString());
+        assertEquals("aVUYACLCdsd4iszxQiCDBCAoCFqxJ99fmA", a.toString());
     }
 
     @Test
@@ -61,9 +61,9 @@ public class ScriptTest {
         // Check we can extract the to address
         byte[] pubkeyBytes = Hex.decode(pubkeyProg);
         Script pubkey = new Script(pubkeyBytes);
-        assertEquals("DUP HASH160 [33e81a941e64cda12c6a299ed322ddbdd03f8d0e] EQUALVERIFY CHECKSIG", pubkey.toString());
+        assertEquals("DUP HASH160 [3B79834DB40CE281E92C683DA59FAF5FDA8E2A9A] EQUALVERIFY CHECKSIG", pubkey.toString());
         Address toAddr = new Address(params, pubkey.getPubKeyHash());
-        assertEquals("cVUYACLCdsd4iszxQiCDBCAoCFqxJ99fmA", toAddr.toString());
+        assertEquals("aVUYACLCdsd4iszxQiCDBCAoCFqxJ99fmA", toAddr.toString());
     }
 
     @Test
@@ -90,7 +90,7 @@ public class ScriptTest {
 
     @Test
     public void testP2SHOutputScript() throws Exception {
-      Address p2shAddress = new Address(MainNetParams.get(), "4gwZsKARr3ekip8RRaBbrNfM8QNXbFmnS1");
+      Address p2shAddress = new Address(MainNetParams.get(), "5gwZsKARr3ekip8RRaBbrNfM8QNXbFmnS1");
       assertTrue(ScriptBuilder.createOutputScript(p2shAddress).isSentToP2SH());
     }
 
