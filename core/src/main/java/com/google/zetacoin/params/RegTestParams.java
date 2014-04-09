@@ -31,7 +31,7 @@ public class RegTestParams extends TestNet3Params {
     public RegTestParams() {
         super();
         interval = 10000;
-        packetMagic = 0xfa0fa55aL;
+        packetMagic = 0xfa0fc55cL;
         proofOfWorkLimit = PROOF_OF_WORK_LIMIT;
         subsidyDecreaseBlockCount = 150;
         port = 18444;
@@ -55,7 +55,7 @@ public class RegTestParams extends TestNet3Params {
                 genesis = super.getGenesisBlock();
                 genesis.setDifficultyTarget(0x207fffffL);
                 genesis.setTime(1296688602L);
-                genesis.setNonce(5);
+                genesis.setNonce(3);
                 checkState(genesis.getHashAsString().toLowerCase().equals("3955bc48e256fbd241260f8d2d9fdf7dc8518991f796e85818204bb5869d2217"));
             }
             return genesis;
