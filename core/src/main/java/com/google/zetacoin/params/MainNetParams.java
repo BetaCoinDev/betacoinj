@@ -32,20 +32,20 @@ public class MainNetParams extends NetworkParameters {
         // Note: proofOfWorkLimit is copied from litecoinj only because
         // - zetacoin satoshi client's bnProofOfWorkLimit is the same as litecoin satoshi client's
         proofOfWorkLimit = Utils.decodeCompactBits(0x1e0fffffL);
-        dumpedPrivateKeyHeader = 224;
-        addressHeader = 80;
-        p2shHeader = 9;
+        dumpedPrivateKeyHeader = 143;
+        addressHeader = 25;
+        p2shHeader = 11;
         acceptableAddressCodes = new int[] { addressHeader, p2shHeader };
-        port = 17333;
-        packetMagic = 0xfab503dfL;
-        genesisBlock.setDifficultyTarget(0x1e0fffffL);
-        genesisBlock.setTime(1375548986L);
-        genesisBlock.setNonce(2089928209);
+        port = 32333;
+        packetMagic = 0xa5c07955L;
+        genesisBlock.setDifficultyTarget(0x1d00ffffL);
+        genesisBlock.setTime(1382532797L);
+        genesisBlock.setNonce(704106316);
         id = ID_MAINNET;
-        subsidyDecreaseBlockCount = 80640;
+        subsidyDecreaseBlockCount = 126000;
         spendableCoinbaseDepth = 100;
         String genesisHash = genesisBlock.getHashAsString();
-        checkState(genesisHash.equals("000006cab7aa2be2da91015902aa4458dd5fbb8778d175c36d429dc986f2bff4"),
+        checkState(genesisHash.equals("000000008ef7da946aa3f4dd81b240c6bdedac0dc038cb04e7cf8e60f37d9281"),
                 genesisHash);
 
         // This contains (at a minimum) the blocks which are not BIP30 compliant. BIP30 changed how duplicate
@@ -57,22 +57,11 @@ public class MainNetParams extends NetworkParameters {
         // checkpoints.put(91842, new Sha256Hash("00000000000a4d0a398161ffc163c503763b1f4360639393e0e4c8e300e0caec"));
         // checkpoints.put(91880, new Sha256Hash("00000000000743f190a18c5577a3c2d2a1f610ae9601ac046a38084ccb7cd721"));
         // checkpoints.put(200000, new Sha256Hash("000000000000034a7dedef4a161fa058a2d67a173a90155f3a2fe6fc132e0ebf"));
-        // TODO: Is ZetaCoin post-BIP30? Do we need these?
+        // TODO: Is BetaCoin post-BIP30? Do we need these?
 
         dnsSeeds = new String[] {
-                "zetachain.cc",
-                "zet.dsync.net",
-                "zetacoin.zapto.org",
-                "zetacoin.no-ip.org",
-                "zetacoin.strangled.net",
-                "zetacoin.ignorelist.com",
-                "seed1.zeta-coin.org",
-                "seed2.zeta-coin.org",
-                "seed3.zeta-coin.org",
-                "seed4.zeta-coin.org",
-                "24.249.152.169",
-                "107.182.162.12"
-        };
+                "seed1.betacoin.org"
+                        };
     }
 
     private static MainNetParams instance;
