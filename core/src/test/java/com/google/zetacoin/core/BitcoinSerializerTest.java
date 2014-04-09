@@ -29,11 +29,11 @@ import java.util.Arrays;
 import static org.junit.Assert.*;
 
 public class BitcoinSerializerTest {
-    private final byte[] addrMessage = Hex.decode("fab503df6164647200000000000000001f000000" +
+    private final byte[] addrMessage = Hex.decode("a5c079556164647200000000000000001f000000" +
             "ed52399b01e215104d010000000000000000000000000000000000ffff0a000001208d");
 
     private final byte[] txMessage = Hex.decode(
-            "FA B5 03 DF 74 78 00 00  00 00 00 00 00 00 00 00" +
+            "A5 C0 79 55 74 78 00 00  00 00 00 00 00 00 00 00" +
             "02 01 00 00 E2 93 CD BE  01 00 00 00 01 6D BD DB" +
             "08 5B 1D 8A F7 51 84 F0  BC 01 FA D5 8D 12 66 E9" +
             "B6 3B 50 88 19 90 E4 B4  0D 6A EE 36 29 00 00 00" +
@@ -156,7 +156,7 @@ public class BitcoinSerializerTest {
     public void testHeaders1() throws Exception {
         BitcoinSerializer bs = new BitcoinSerializer(MainNetParams.get());
 
-        HeadersMessage hm = (HeadersMessage) bs.deserialize(ByteBuffer.wrap(Hex.decode("fab503df686561" +
+        HeadersMessage hm = (HeadersMessage) bs.deserialize(ByteBuffer.wrap(Hex.decode("a5c07955686561" +
                 "646572730000000000520000005d4fab8101010000006fe28c0ab6f1b372c1a6a246ae6" +
                 "3f74f931e8365e15a089c68d6190000000000982051fd1e4ba744bbbe680e1fee14677b" +
                 "a1a3c3540bf7b1cdb606e857233e0e61bc6649ffff001d01e3629900")));
