@@ -51,10 +51,10 @@ public class BloomFilterTest {
     public void walletTest() throws Exception {
         NetworkParameters params = MainNetParams.get();
 
-        DumpedPrivateKey privKey = new DumpedPrivateKey(params, "8YHUd3FoPBb4fhVQRTrMcCDmayt2zYJz85wTiabEzJigHCr9bg4");
+        DumpedPrivateKey privKey = new DumpedPrivateKey(params, "NEHU6VU8RaidMVEFyHeKgbQT6mscSiUVfgSmcnoG2YYRQQCoRyr3");
         
         Address addr = privKey.getKey().toAddress(params);
-        assertTrue(addr.toString().equals("ZJZCmxFimpXTwVZHFR7SDU8PYXRFJgHKPj"));
+        assertTrue(addr.toString().equals("BTRHF9WtJZEy8xhhs3cVNfGjswc2DYXCj2"));
         
         Wallet wallet = new Wallet(params);
         // Check that the wallet was created with no keys
