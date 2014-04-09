@@ -41,7 +41,7 @@ public class TestNet3Params extends NetworkParameters {
         acceptableAddressCodes = new int[] { addressHeader, p2shHeader };
         dumpedPrivateKeyHeader = 212;
         genesisBlock.setTime(1379797212L);
-        genesisBlock.setDifficultyTarget(0x1e0fffffL);
+        genesisBlock.setDifficultyTarget(0x1d00ffffL);
         genesisBlock.setNonce(415605766);
         spendableCoinbaseDepth = 100;
         subsidyDecreaseBlockCount = 126000;
