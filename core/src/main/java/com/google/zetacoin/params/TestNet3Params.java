@@ -34,7 +34,7 @@ public class TestNet3Params extends NetworkParameters {
         packetMagic = 0x0ac07312L;
         interval = INTERVAL;
         targetTimespan = TARGET_TIMESPAN;
-        proofOfWorkLimit = Utils.decodeCompactBits(0x1e0fffffL);
+        proofOfWorkLimit = Utils.decodeCompactBits(0x1d00ffffL);
         port = 26783;
         addressHeader = 83;
         p2shHeader = 13;
