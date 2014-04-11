@@ -375,7 +375,7 @@ public class BlockChainTest {
         b2.setNonce(59797);
         b2.setTime(1296734343L);
         b2.setPrevBlockHash(new Sha256Hash("00000971c67f9107c11b82dd2ef369d6fbdfde092408a2ac0ba77adb0159aeea"));
-        b2.setDifficultyTarget(0x1e0fffff);
+        b2.setDifficultyTarget(0x1d00ffff);
         assertEquals("000000f2ae7a220beeabb96835c95a6741cfb0bb1f15057d52282564ac42ca41", b2.getHashAsString());
         b2.verifyHeader();
         return b2;
@@ -387,7 +387,7 @@ public class BlockChainTest {
         b1.setNonce(640691);
         b1.setTime(1296734340);
         b1.setPrevBlockHash(new Sha256Hash("000007717e2e2df52a9ff29b0771901c9c12f5cbb4914cdf0c8047b459bb21d8"));
-        b1.setDifficultyTarget(0x1e0fffff);
+        b1.setDifficultyTarget(0x1d00ffff);
         assertEquals("00000971c67f9107c11b82dd2ef369d6fbdfde092408a2ac0ba77adb0159aeea", b1.getHashAsString());
         b1.verifyHeader();
         return b1;
